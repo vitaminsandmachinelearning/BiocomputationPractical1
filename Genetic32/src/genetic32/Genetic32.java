@@ -9,6 +9,7 @@ public class Genetic32 {
     
     static int popsize = 4;
     static int poplength = 5;
+    static int generations = 3000;
     
     static char[][] population = new char[popsize][poplength];
     static int[] populationValues = new int[popsize];
@@ -20,22 +21,22 @@ public class Genetic32 {
     public static void main(String[] args) {
         mutationchance = (1f / popsize + 1f / poplength) / 2f;
         genPop();
-        for(int i = 0; i < 300; i++)
+        genValues();
+        for(int i = 0; i < generations; i++)
         {
-            genValues();
-            printPop();
+            //printPop();
             buildPool();
             genValues();
-            printPop();
+            //printPop();
             crossPool();
             genValues();
-            printPop();
+            //printPop();
             mutatePool();
             genValues();
-            printPop();
-            System.out.println("-----------------------");
-            
+            //printPop();
+            //System.out.println("-----------------------");
         }
+        printPop();
     }
     
     static void genPop()
